@@ -5,18 +5,28 @@
 using namespace std;
 
 int solution(vector<int> people, int limit) {
-    int answer = 0, weight_sum;
-    sort(people.begin(), people.end());
-    while (!people.empty()){
-        weight_sum = limit - people.back();
-        people.pop_back();
-        answer++;
-        for (int i = people.size() - 1; i >= 0; i--){
-            if (people[i] <= weight_sum){
-                people.erase(people.begin() + i);
-                weight_sum -= people[i];
+    int answer = 0, restWeight;
+    vector<int> weightPeopleNumber(limit + 1, 0);
+    sort(people.begin(), people.end(), greater<int>());
+    
+    for (const int& weight : people){
+        weightPeopleNumber[weight]++;
+    }
+    
+    for (int i = 0; i < people.size(); i++){
+        restWeight = limit;
+        if (weightPeopleNumber[people[i]]){
+            weightPeopleNumber[people[i]]--;
+            restWeight -= people[i];
+            for (int j = restWeight; j > 0; j--){
+                if (weightPeopleNumber[j]){
+                    weightPeopleNumber[j]--;
+                    break;
+                }
             }
+            answer++;
         }
     }
+    
     return answer;
 }
