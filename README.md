@@ -1,3 +1,3 @@
 # ProgrammersPS
-There are Programmers problem solutions
-You can reuse the codes and if you want to hear an explanation about problems, contact me by email
+프로그래머스 사이트 문제 솔루션 소스 코드 모음입니다.
+각 레벨 별, 문제에 사용되는 알고리즘 별로 정리되어 있으니 참고하시고, 소스 코드에 대해 궁금한 점이 있으시면 이메일로 연락해주세요.
